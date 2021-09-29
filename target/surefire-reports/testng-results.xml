@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="6" passed="6">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="71" started-at="2020-07-22T11:56:08 IST" finished-at="2020-07-22T11:56:08 IST">
+    <groups>
+    </groups>
+    <test name="Test" duration-ms="71" started-at="2020-07-22T11:56:08 IST" finished-at="2020-07-22T11:56:08 IST">
+      <class name="MavenProject.MavenJavaPro.Mobile">
+        <test-method status="PASS" signature="mobileAuto()[pri:0, instance:MavenProject.MavenJavaPro.Mobile@4b4523f8]" name="mobileAuto" duration-ms="6" started-at="2020-07-22T11:56:08 IST" finished-at="2020-07-22T11:56:08 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- mobileAuto -->
+        <test-method status="PASS" signature="mobileUI()[pri:0, instance:MavenProject.MavenJavaPro.Mobile@4b4523f8]" name="mobileUI" duration-ms="0" started-at="2020-07-22T11:56:08 IST" finished-at="2020-07-22T11:56:08 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- mobileUI -->
+      </class> <!-- MavenProject.MavenJavaPro.Mobile -->
+      <class name="MavenProject.MavenJavaPro.Rest">
+        <test-method status="PASS" signature="restAuto()[pri:0, instance:MavenProject.MavenJavaPro.Rest@731a74c]" name="restAuto" duration-ms="0" started-at="2020-07-22T11:56:08 IST" finished-at="2020-07-22T11:56:08 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- restAuto -->
+        <test-method status="PASS" signature="restUI()[pri:0, instance:MavenProject.MavenJavaPro.Rest@731a74c]" name="restUI" duration-ms="0" started-at="2020-07-22T11:56:08 IST" finished-at="2020-07-22T11:56:08 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- restUI -->
+      </class> <!-- MavenProject.MavenJavaPro.Rest -->
+      <class name="MavenProject.MavenJavaPro.Selenium">
+        <test-method status="PASS" signature="browserAuto()[pri:0, instance:MavenProject.MavenJavaPro.Selenium@369f73a2]" name="browserAuto" duration-ms="1" started-at="2020-07-22T11:56:08 IST" finished-at="2020-07-22T11:56:08 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- browserAuto -->
+        <test-method status="PASS" signature="browserUI()[pri:0, instance:MavenProject.MavenJavaPro.Selenium@369f73a2]" name="browserUI" duration-ms="0" started-at="2020-07-22T11:56:08 IST" finished-at="2020-07-22T11:56:08 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- browserUI -->
+      </class> <!-- MavenProject.MavenJavaPro.Selenium -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>
