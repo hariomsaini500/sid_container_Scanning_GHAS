@@ -17,7 +17,7 @@ jobs:
       uses: actions/checkout@v2 # Action to checkout the repository code
     
     - name: Initialize CodeQL
-      uses: github/codeql-action/init@v1 # Action to initialize CodeQL for the selected languages
+      uses: github/codeql-action/init@v2 # Action to initialize CodeQL for the selected languages
       with:
         languages: ${{ matrix.language }} # Initialize CodeQL for the specified language
     
