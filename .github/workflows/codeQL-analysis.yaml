@@ -1,0 +1,37 @@
+name: CodeQL Analysis
+ 
+on:
+  workflow-dispatch
+ 
+jobs:
+  analyze:
+    name: Analyze code with CodeQL
+    runs-on: ubuntu-latest
+ 
+    strategy:
+      matrix:
+        language: [ 'javascript', 'python', 'java' ] # Define the languages to be analyzed
+ 
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2 # Action to checkout the repository code
+    
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v1 # Action to initialize CodeQL for the selected languages
+      with:
+        languages: ${{ matrix.language }} # Initialize CodeQL for the specified language
+    
+    - name: Autobuild
+      uses: github/codeql-action/autobuild@v1 # Action to build the code for analysis
+      with:
+        languages: ${{ matrix.language }} # Specify the language for autobuild  
+ 
+    - name: Analyze
+      uses: github/codeql-action/analyze@v1 # Action to analyze the code using CodeQL
+      with:
+        languages: ${{ matrix.language }} # Specify the language for analysis 
+ 
+    - name: Upload SARIF
+      uses: github/codeql-action/upload-sarif@v1 # Action to upload the analysis results in SARIF format
+      with:
+        sarif_file: codeql-results/${{ matrix.language }}/results.sarif # Define the location of the SARIF file
