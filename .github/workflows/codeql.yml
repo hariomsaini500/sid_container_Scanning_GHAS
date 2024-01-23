@@ -1,68 +1,42 @@
-[8:47 PM] HARIOM SAINI
 name: CodeQL Analysis with Private Docker Image
- 
 on:
-
   push:
-
-    branches: [main]
-
-  pull_request:
-
     branches: [main]
  
 jobs:
-
   analyze:
-
     strategy:
-
       matrix:
-
         os: [ubuntu-latest]
-
         language: [java, kotlin]
- 
     runs-on: ${{ matrix.os }}
- 
     permissions:
-
       actions: write
-
       contents: read
  
     steps:
-
       - name: Checkout code
-
         uses: actions/checkout@v2
  
       - name: Initialize CodeQL
-
         uses: github/codeql-action/init@v1
  
       - name: Build the project
-
         run: |
-
           ./configure
-
           make
  
       - name: Log in to Docker registry
-
         run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin registry.hub.docker.com/abc123119/project1:latest
 
         # Replace registry.example.com with your private registry URL
  
       - name: Pull the private Docker image
-
         run: docker pull registry.hub.docker.com/abc123119/project1:latest
 
         # Replace registry.example.com/my-private-image:tag with the actual path to your private image
  
       - name: Run CodeQL analysis
-
         uses: github/codeql-action/analyze@v1
  
       # Add more steps as per your deployment or usage needs
