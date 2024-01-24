@@ -87,6 +87,16 @@ jobs:
     - name: Pull the private Docker image
       run: docker pull abc123119/test:latest
         # Replace registry.example.com/my-private-image:tag with the actual path to your private image
- 
+
+    - name: Scan container image for vulnerabilities
+      uses: github/codeql-action/scan-image@v1
+      with:
+          image-uri: abc123119/test:latest
+
+    - name: Notify on security issues
+      if: ${{ steps.scan_image.outputs.vulnerabilities-found == 'true' }}
+      run: |
+          echo "Security vulnerabilities found in the container image. Taking necessary actions..."      
+   
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
