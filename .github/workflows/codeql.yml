@@ -60,7 +60,7 @@ jobs:
         # Prefix the list here with "+" to use these queries and those in the config file.
 
         # For more details on CodeQL's query packs, refer to: https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#using-queries-in-ql-packs
-        queries: security-extended
+        queries: security-extended,security-and-quality
 
 
     # Autobuild attempts to build any compiled languages (C/C++, C#, Go, Java, or Swift).
@@ -77,8 +77,14 @@ jobs:
     # - run: |
     #     echo "Run, Build Application using script"
     #     ./location_of_script_within_repo/buildscript.sh
-
+ 
+    - name: Log in to Docker registry
+      run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin registry.hub.docker.com/abc123119/project1:latest
+        # Replace registry.example.com with your private registry URL
+ 
+    - name: Pull the private Docker image
+      run: docker pull registry.hub.docker.com/abc123119/project1:latest
+        # Replace registry.example.com/my-private-image:tag with the actual path to your private image
+ 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
-      with:
-        category: "/language:${{matrix.language}}"
