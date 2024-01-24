@@ -85,7 +85,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
  
     - name: Pull the private Docker image
-      run: docker pull registry.hub.docker.com/abc123119/project1:latest
+      run: docker pull test_dev_cms:latest
         # Replace registry.example.com/my-private-image:tag with the actual path to your private image
  
     - name: Perform CodeQL Analysis
