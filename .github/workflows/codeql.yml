@@ -66,7 +66,7 @@ jobs:
     # Autobuild attempts to build any compiled languages (C/C++, C#, Go, Java, or Swift).
     # If this step fails, then you should remove it and run the build manually (see below)
     - name: Autobuild
-      #uses: github/codeql-action/autobuild@v3
+      uses: github/codeql-action/autobuild@v3
 
     # ℹ️ Command-line programs to run using the OS shell.
     # 📚 See https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun
@@ -74,22 +74,11 @@ jobs:
     #   If the Autobuild fails above, remove it and uncomment the following three lines.
     #   modify them (or add more) to build your code if your project, please refer to the EXAMPLE below for guidance.
 
-      run: |
-           echo "Run, Build Application using script"
-           ./location_of_script_within_repo/buildscript.sh
- 
-    - name: Log in to Docker registry
-      run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin registry.hub.docker.com/abc123119/project1:latest
+    # - run: |
+    #     echo "Run, Build Application using script"
+    #     ./location_of_script_within_repo/buildscript.sh
 
-        # Replace registry.example.com with your private registry URL abc
- 
-    - name: Pull the private Docker image
-      run: docker pull registry.hub.docker.com/abc123119/project1:latest
-
-        # Replace registry.example.com/my-private-image:tag with the actual path to your private image
- 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
- 
-      # Add more steps as per your deployment or usage needs
- 
+      with:
+        category: "/language:${{matrix.language}}"
