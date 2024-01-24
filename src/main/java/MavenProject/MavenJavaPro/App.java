@@ -1,7 +1,7 @@
 package MavenProject.MavenJavaPro;
 
 /**
- * Hello world!
+ * Hello world!!!!!
  *
  */
 public class App 
